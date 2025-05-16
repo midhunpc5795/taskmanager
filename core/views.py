@@ -1,19 +1,27 @@
-from rest_framework import viewsets, status
-from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
-from .models import Task, Comment
-from .serializers import TaskSerializer, CommentSerializer, RegisterSerializer, MyTokenObtainPairSerializer
-from allauth.socialaccount.providers.google.views import GoogleOAuth2Adapter
-from allauth.socialaccount.providers.oauth2.client import OAuth2Client
-from dj_rest_auth.registration.views import SocialLoginView
-from django.conf import settings
 import requests
+
+from django.conf import settings
 from django.contrib.auth.models import User
-from rest_framework import generics
+
+from rest_framework import generics, status, viewsets
 from rest_framework.decorators import api_view
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.views import TokenObtainPairView
 
+from allauth.socialaccount.providers.google.views import GoogleOAuth2Adapter
+from allauth.socialaccount.providers.oauth2.client import OAuth2Client
+from dj_rest_auth.registration.views import SocialLoginView
+
+from .models import Task, Comment
+from .serializers import (
+    TaskSerializer,
+    CommentSerializer,
+    RegisterSerializer,
+    MyTokenObtainPairSerializer,
+)
 
 GITHUB_CLIENT_ID = settings.GITHUB_CLIENT_ID
 GITHUB_CLIENT_SECRET = settings.GITHUB_CLIENT_SECRET
