@@ -16,16 +16,6 @@ class GoogleLogin(SocialLoginView):
         print("POST data received:", request.data)  # Log the POST data
         return super().post(request, *args, **kwargs)
 
-class DebugGoogleOAuth2Adapter(GoogleOAuth2Adapter):
-    def complete_login(self, request, app, token, **kwargs):
-          # Access token string
-        resp = self.get_provider().sociallogin_from_response(
-            request,
-            self.get_profile(token.token)
-        )
-        print("Response:", resp)
-        return resp
-
 class TaskViewSet(viewsets.ModelViewSet):
     """
     ViewSet for managing Task CRUD operations with custom response messages.
