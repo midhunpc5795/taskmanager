@@ -64,7 +64,7 @@ DB_PORT=5432
 GOOGLE_CLIENT_ID=your_google_client_id
 GOOGLE_CLIENT_SECRET=your_google_client_secret
 GOOGLE_API_KEY=your_google_api_key
-GITHUB_CLIENT_ID=client_secret
+GITHUB_CLIENT_ID=client_id
 GITHUB_CLIENT_SECRET=client_secret
 ```
 
